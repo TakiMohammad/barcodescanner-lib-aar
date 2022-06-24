@@ -145,7 +145,7 @@ public final class LocaleManager {
    * @return True if this is a Book Search URL.
    */
   public static boolean isBookSearchUrl(String url) {
-    return url.startsWith("http://google.com/books") || url.startsWith("http://books.google.");
+    return url.startsWith("https://google.com/books") || url.startsWith("https://books.google.");
   }
 
   private static String getSystemCountry() {
