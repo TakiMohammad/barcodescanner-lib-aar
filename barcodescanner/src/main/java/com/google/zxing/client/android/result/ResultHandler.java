@@ -397,19 +397,19 @@ public abstract class ResultHandler {
   }
 
   final void getDirections(double latitude, double longitude) {
-    launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://maps.google." +
+    launchIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("https://maps.google." +
         LocaleManager.getCountryTLD(activity) + "/maps?f=d&daddr=" + latitude + ',' + longitude)));
   }
 
   // Uses the mobile-specific version of Product Search, which is formatted for small screens.
   final void openProductSearch(String upc) {
-    Uri uri = Uri.parse("http://www.google." + LocaleManager.getProductSearchCountryTLD(activity) +
+    Uri uri = Uri.parse("https://www.google." + LocaleManager.getProductSearchCountryTLD(activity) +
         "/m/products?q=" + upc + "&source=zxing");
     launchIntent(new Intent(Intent.ACTION_VIEW, uri));
   }
 
   final void openBookSearch(String isbn) {
-    Uri uri = Uri.parse("http://books.google." + LocaleManager.getBookSearchCountryTLD(activity) +
+    Uri uri = Uri.parse("https://books.google." + LocaleManager.getBookSearchCountryTLD(activity) +
         "/books?vid=isbn" + isbn);
     launchIntent(new Intent(Intent.ACTION_VIEW, uri));
   }
@@ -424,9 +424,7 @@ public abstract class ResultHandler {
   final void openURL(String url) {
     // Strangely, some Android browsers don't seem to register to handle HTTP:// or HTTPS://.
     // Lower-case these as it should always be OK to lower-case these schemes.
-    if (url.startsWith("HTTP://")) {
-      url = "http" + url.substring(4);
-    } else if (url.startsWith("HTTPS://")) {
+     if (url.startsWith("HTTPS://")) {
       url = "https" + url.substring(5);
     }
     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
