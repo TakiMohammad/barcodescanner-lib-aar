@@ -93,7 +93,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private static final long DEFAULT_INTENT_RESULT_DURATION_MS = 1500L;
   private static final long BULK_MODE_SCAN_DELAY_MS = 1000L;
 
-  private static final String[] ZXING_URLS = { "http://zxing.appspot.com/scan", "zxing://scan/" };
+  private static final String[] ZXING_URLS = { "https://zxing.appspot.com/scan", "zxing://scan/" };
 
   private static final int HISTORY_REQUEST_CODE = 0x0000bacc;
 
@@ -271,7 +271,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         }
 
       } else if (dataString != null &&
-                 dataString.contains("http://www.google") &&
+                 dataString.contains("https://www.google") &&
                  dataString.contains("/m/products/scan")) {
 
         // Scan only products and send the result to mobile Product Search.
